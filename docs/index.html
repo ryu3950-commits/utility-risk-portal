@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>착공 전 현장 리스크 검토 플랫폼</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <main class="map-area">
+      <div id="map"></div>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PRE-CONSTRUCTION FIELD REVIEW SYSTEM</p>
+          <h1>착공 전 현장조건 검토 플랫폼</h1>
+        </div>
+        <div class="top-actions">
+          <div class="map-toggle" aria-label="지도 유형 선택">
+            <button class="map-mode active" type="button" data-map-mode="plan">도면형</button>
+            <button class="map-mode" type="button" data-map-mode="satellite">위성형</button>
+          </div>
+          <button class="primary-btn" type="button">관로 위치 수정</button>
+        </div>
+      </header>
+
+      <aside class="panel">
+        <div class="project-card">
+          <span class="label">현재 프로젝트</span>
+          <strong>서울아레나 착공 전 검토 구역</strong>
+          <p>
+            공사명: 서울아레나 복합문화시설 조성사업<br>
+            위치: 서울특별시 도봉구 창동 일대<br>
+            검토대상: 굴착 예정구간 내 기존 관로 간섭 및 관계기관 협의사항
+          </p>
+        </div>
+
+        <div class="metrics">
+          <div>
+            <span>검토 관로</span>
+            <strong id="metricTotal">0</strong>
+          </div>
+          <div>
+            <span>이설필요</span>
+            <strong id="metricRelocate" class="danger">0</strong>
+          </div>
+          <div>
+            <span>협의필요</span>
+            <strong id="metricConsult" class="warning">0</strong>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div><span class="swatch boundary"></span>사업부지 경계</div>
+          <div><span class="line-swatch sewer"></span>기존 하수관로 추정</div>
+          <div><span class="line-swatch water"></span>기존 상수관로 추정</div>
+          <div><span class="swatch relocate"></span>이설필요</div>
+          <div><span class="swatch consult"></span>협의필요</div>
+        </div>
+
+        <div class="segment-list" id="segmentList">
+        </div>
+
+        <section class="detail" id="detail">
+          <h2>관로 조치 상세</h2>
+          <p class="muted">지도 또는 관로 항목을 선택하면 협의기관, 처리기한, 착공 영향과 조치대안이 표시됩니다.</p>
+        </section>
+      </aside>
+
+      <div class="map-note">공개지도 기반 시연용 화면입니다. 지하매설물 등 세부 레이어는 가상 데이터로 구성합니다.</div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
