@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "site-boundary",
+        "name": "창동역 일대 사업부지",
+        "type": "boundary"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [127.04655, 37.65772],
+            [127.05072, 37.65784],
+            [127.05152, 37.65435],
+            [127.04672, 37.65412],
+            [127.04655, 37.65772]
+          ]
+        ]
+      }
+    }
+  ]
+}
