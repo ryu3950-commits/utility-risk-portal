@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>착공 전 현장 리스크 검토 플랫폼</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <main class="map-area">
+      <div id="map"></div>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MOYOUNG CM COMPETITION PROTOTYPE</p>
+          <h1>착공 전 현장 리스크 검토 플랫폼</h1>
+        </div>
+        <div class="top-actions">
+          <div class="map-toggle" aria-label="지도 유형 선택">
+            <button class="map-mode active" type="button" data-map-mode="plan">도면형</button>
+            <button class="map-mode" type="button" data-map-mode="satellite">위성형</button>
+          </div>
+          <button class="primary-btn" type="button">+ 리스크 등록</button>
+        </div>
+      </header>
+
+      <aside class="panel">
+        <div class="project-card">
+          <span class="label">현재 프로젝트</span>
+          <strong>창동역 일대 복합개발 가상 부지</strong>
+          <p>굴착, 지하매설물, 장비동선 등 착공 전 확인이 필요한 위험요소를 지도 기반으로 검토합니다.</p>
+        </div>
+
+        <div class="metrics">
+          <div>
+            <span>등록 리스크</span>
+            <strong>0</strong>
+          </div>
+          <div>
+            <span>고위험</span>
+            <strong class="danger">0</strong>
+          </div>
+          <div>
+            <span>검토 상태</span>
+            <strong>초안</strong>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div><span class="swatch boundary"></span>사업부지 경계</div>
+          <div><span class="swatch high"></span>위험도 상</div>
+          <div><span class="swatch medium"></span>위험도 중</div>
+          <div><span class="swatch low"></span>위험도 하</div>
+        </div>
+
+        <section class="detail" id="detail">
+          <h2>리스크 상세</h2>
+          <p class="muted">현재는 사업부지 경계만 표시한 상태입니다. 다음 단계에서 지도 위에 리스크를 직접 등록합니다.</p>
+        </section>
+      </aside>
+
+      <div class="map-note">공개지도 기반 시연용 화면입니다. 지하매설물 등 세부 레이어는 가상 데이터로 구성합니다.</div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
