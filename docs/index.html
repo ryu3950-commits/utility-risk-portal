@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>착공 전 현장 리스크 검토 플랫폼</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app">
+    <main class="map-area">
+      <div id="map"></div>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PRE-CONSTRUCTION FIELD REVIEW SYSTEM</p>
+          <h1>착공 전 현장조건 검토 플랫폼</h1>
+        </div>
+        <div class="top-actions">
+          <div class="map-toggle" aria-label="지도 유형 선택">
+            <button class="map-mode active" type="button" data-map-mode="plan">도면형</button>
+            <button class="map-mode" type="button" data-map-mode="satellite">위성형</button>
+          </div>
+          <button class="primary-btn" type="button">+ 현장확인 등록</button>
+        </div>
+      </header>
+
+      <aside class="panel">
+        <div class="project-card">
+          <span class="label">현재 프로젝트</span>
+          <strong>서울아레나 착공 전 검토 구역</strong>
+          <p>도면, 공정표, 공개지도, 현장 확인 결과를 지도에 중첩하여 이설필요 구간과 협의필요 구간을 선별합니다.</p>
+        </div>
+
+        <div class="metrics">
+          <div>
+            <span>검토 구간</span>
+            <strong id="metricTotal">0</strong>
+          </div>
+          <div>
+            <span>이설필요</span>
+            <strong id="metricRelocate" class="danger">0</strong>
+          </div>
+          <div>
+            <span>협의필요</span>
+            <strong id="metricConsult" class="warning">0</strong>
+          </div>
+        </div>
+
+        <div class="legend">
+          <div><span class="swatch boundary"></span>사업부지 경계</div>
+          <div><span class="line-swatch sewer"></span>기존 하수관로 추정</div>
+          <div><span class="line-swatch water"></span>기존 상수관로 추정</div>
+          <div><span class="swatch relocate"></span>이설필요</div>
+          <div><span class="swatch consult"></span>협의필요</div>
+          <div><span class="swatch normal"></span>일반구간</div>
+        </div>
+
+        <section class="workflow">
+          <h2>기능 구성</h2>
+          <div class="step active">
+            <b>01 구간 자동 분류</b>
+            <span>도면·공정표·공개데이터 기반 검토 구간 도출</span>
+          </div>
+          <div class="step">
+            <b>02 현장 확인 체크리스트</b>
+            <span>매설물, 장비동선, 도로점용, 보행안전 항목 관리</span>
+          </div>
+          <div class="step">
+            <b>03 굴착 결과 즉시 반영</b>
+            <span>발견 위치, 심도, 사진, 조치내용 상태값 입력</span>
+          </div>
+          <div class="step">
+            <b>04 공정 충돌 알림</b>
+            <span>작업순서 조정, 장비동선 변경, 임시 보호조치 검토</span>
+          </div>
+          <div class="step">
+            <b>05 협의·착공 판단 이력</b>
+            <span>관계기관 협의, 승인 여부, 착공 가능 여부 기록</span>
+          </div>
+        </section>
+
+        <div class="segment-list" id="segmentList">
+        </div>
+
+        <section class="detail" id="detail">
+          <h2>구간 상세</h2>
+          <p class="muted">지도 또는 검토 구간을 선택하면 확인 항목과 조치 판단 이력이 표시됩니다.</p>
+        </section>
+      </aside>
+
+      <div class="map-note">공개지도 기반 시연용 화면입니다. 지하매설물 등 세부 레이어는 가상 데이터로 구성합니다.</div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
